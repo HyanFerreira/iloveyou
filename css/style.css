@@ -22,7 +22,7 @@
   gap: 10px;
   transition: ease-in-out 0.5s;
   position: absolute;
-  top: 15%;
+  top: 10%;
 }
 
 .card-time {
@@ -31,7 +31,9 @@
   padding: 10px 12px;
   border-radius: 10px;
   border: 2px solid red;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content-coracion {
@@ -102,9 +104,10 @@
 
 @media (max-width: 780px) {
   .content-timer {
-    font-size: 1rem;
+    font-size: 0.8rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
   .heart {
     width: 150px;
