@@ -1,5 +1,5 @@
 function updateTimer() {
-    const startDate = new Date('2022-06-14T00:00:00');
+    const startDate = new Date('2022-06-15T00:00:00');
     const currentDate = new Date();
     const timeDifference = currentDate - startDate;
 
