@@ -1,5 +1,5 @@
 function updateTimer() {
-    const startDate = new Date('2022-06-11T00:00:00');
+    const startDate = new Date('2022-06-15T00:00:00');
     const currentDate = new Date();
     const timeDifference = currentDate - startDate;
 
@@ -28,21 +28,9 @@ function updateTimer() {
         }
     }
 
-    // Calculando meses e dias
-    months = Math.floor(days / 30); // Aproximação de meses, assumindo 30 dias por mês
-    days %= 30; // Atualizando o número de dias restantes após subtrair os meses
-
-    // Ajustando para meses com mais ou menos de 30 dias
-    const startDatePlusMonths = new Date(startDate); // Criando uma cópia da data inicial
-    startDatePlusMonths.setMonth(startDatePlusMonths.getMonth() + months); // Adicionando meses à data inicial
-    const endDateOfLastMonth = new Date(startDatePlusMonths); // Criando uma cópia da data após adicionar os meses
-    endDateOfLastMonth.setMonth(endDateOfLastMonth.getMonth() + 1); // Avançando para o próximo mês
-    endDateOfLastMonth.setDate(0); // Configurando o dia para 0, que é o último dia do mês anterior
-
-    // Verificando se há mais dias do que o último dia do mês
-    if (days > endDateOfLastMonth.getDate()) {
-        // Se houver, ajustamos os dias e os meses
-        days -= endDateOfLastMonth.getDate();
+    // Calculando meses
+    while (days >= 30) {
+        days -= 30;
         months++;
     }
 
@@ -50,7 +38,7 @@ function updateTimer() {
     const minutes = totalMinutes % 60;
     const seconds = totalSeconds % 60;
 
-    const timerText = document.querySelector('.content-timer');
+    const timerText = document.querySelector('.content-timer')
     timerText.innerHTML = `
         <span class="years card-time">${years} ano</span>
         <span class="months card-time">${months} meses</span>
@@ -78,5 +66,3 @@ window.ityped.init(document.querySelector(".ityped"), {
     loop: true,
     typeSpeed: 150
 });
-
-
